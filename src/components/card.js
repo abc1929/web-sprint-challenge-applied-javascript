@@ -37,6 +37,7 @@ const Card = (article) => {
    div21.append(img);
    div2.append(div21, span);
    div.append(div1, div2);
+   div.addEventListener("click", (e) => console.log(div1.textContent));
    return div;
 };
 
