@@ -22,6 +22,36 @@ const Tabs = (topics) => {
       const temp = document.createElement("div");
       temp.className = "tab";
       temp.textContent = i;
+
+      // click a tab to only see that category
+      // click again on a filtered tab would then display all tabs back.
+      temp.addEventListener("click", (e) => {
+         // we define a 'filtered' tab is of 0.65 opacity
+         // if the current tab clicked is 'filtered'
+         // restore all to default
+         if (temp.style.opacity === "0.65") {
+            document
+               .querySelectorAll(".card")
+               .forEach((i) => (i.style.display = "initial"));
+            temp.style.opacity = "1";
+         } else {
+            // else if current tab clicked is not 'filtered'
+            // then display only this category of card, set this tab to 'filtered'
+            document
+               .querySelectorAll(".tab")
+               .forEach((i) => (i.style.opacity = "1"));
+            temp.style.opacity = "0.65";
+            document.querySelectorAll(".card").forEach((i) => {
+               i.style.display = "initial";
+               if (
+                  i.classList.contains(e.target.textContent.split(".")[0]) ===
+                  false
+               ) {
+                  i.style.display = "none";
+               }
+            });
+         }
+      });
       return temp;
    });
 

@@ -58,7 +58,10 @@ const cardAppender = (selector) => {
          // we figure out the keys of the object and descend one more layer until the article layer, which can be passed to Card() to create and render.
          for (let i of Object.keys(res.data.articles)) {
             res.data.articles[i].forEach((article) => {
-               document.querySelector(selector).append(Card(article));
+               const temp = Card(article);
+               // we add a class for filtering content
+               temp.classList.add(i);
+               document.querySelector(selector).append(temp);
             });
          }
       })
