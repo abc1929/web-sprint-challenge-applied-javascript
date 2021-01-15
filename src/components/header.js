@@ -20,7 +20,7 @@ const Header = (title, date, temp) => {
    const h1 = document.createElement("h1");
    h1.textContent = title;
    const span2 = document.createElement("span");
-   span2.className = "class";
+   span2.className = "temp";
    span2.textContent = temp;
 
    div.append(span1, h1, span2);

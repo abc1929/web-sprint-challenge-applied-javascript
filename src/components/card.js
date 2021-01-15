@@ -24,15 +24,15 @@ const Card = (article) => {
    div.className = "card";
    const div1 = document.createElement("div");
    div1.className = "headline";
+   div1.textContent = article.headline;
    const div2 = document.createElement("div");
-   div2.textContent = article.headline;
    div2.className = "author";
    const div21 = document.createElement("div");
    div21.className = "img-container";
    const img = document.createElement("img");
    img.src = article.authorPhoto;
    const span = document.createElement("span");
-   span.textContent = article.authorName;
+   span.textContent = `By ${article.authorName}`;
 
    div21.append(img);
    div2.append(div21, span);
